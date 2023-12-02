@@ -10,17 +10,17 @@ export default class Cliente {
     public nomeSocial: string
     private _cpf: CPF
     private _rgs: Array<RG>
-    private dataCadastro: Date
+    public dataCadastro: Date
     private _telefones: Array<Telefone>
     private produtosConsumidos: Array<Produto>
     private servicosConsumidos: Array<Servico>
     private pets: Array<Pet>
-    constructor(nome: string, nomeSocial: string, cpf: CPF, rgs: Array<RG>, telefones: Array<Telefone>) {
+    constructor(nome: string, nomeSocial: string, cpf: CPF, rgs: Array<RG>, telefones: Array<Telefone>, dataCadastro: Date) {
         this.nome = nome
         this.nomeSocial = nomeSocial
         this._cpf = cpf
         this._rgs = rgs
-        this.dataCadastro = new Date()
+        this.dataCadastro = dataCadastro
         this._telefones = telefones
         this.produtosConsumidos = []
         this.servicosConsumidos = []

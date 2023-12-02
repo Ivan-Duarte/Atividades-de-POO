@@ -5,6 +5,7 @@ import { ExclusaoCliente } from "../negocio/app-cliente/deleteCliente";
 import EditorCliente from "../negocio/app-cliente/editarCliente";
 import ListagemClientes from "../negocio/app-cliente/listagemCliente";
 import CadastroPet from "../negocio/app-pet/cadastroPet";
+import { ExclusaoPet } from "../negocio/app-pet/deletePet";
 import ListagemPets from "../negocio/app-pet/listagemPet";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
@@ -15,10 +16,11 @@ while (execucao) {
     console.log(`Opções:`);
     console.log(`1 - Cadastrar cliente`);
     console.log(`2 - Listar todos os clientes`);
-    console.log(`3 - Deletar cliente por CPF`);
-    console.log(`4 - Editar cliente por CPF\n`);
+    console.log(`3 - Deletar Cliente por "CPF"`);
+    console.log(`4 - Editar Cliente por "CPF"\n`);
     console.log(`5 - Cadastrar um Pet`);
-    console.log(`6 - Listar todos os Pets`)
+    console.log(`6 - Listar todos os Pets`);
+    console.log(`7 - Deletar Pet por "Nome"`);
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -34,7 +36,7 @@ while (execucao) {
             listagem.listar()
             break;
         case 3:
-            var cpfDel = entrada.receberTexto('Digite um CPF para exclusão: ');
+            let cpfDel = entrada.receberTexto('Digite um CPF para exclusão: ');
             ExclusaoCliente.excluirCliente(empresa, cpfDel);
             break;
         case 4:
@@ -48,6 +50,10 @@ while (execucao) {
         case 6:
             let listagemPet = new ListagemPets(empresa.getPets)
             listagemPet.listar()
+            break;
+        case 7:
+            let nomePeteDel = entrada.receberTexto('Digite o Nome do Pet para exclusão: ');
+            ExclusaoPet.excluirPet(empresa, nomePeteDel);
             break;
         case 0:
             execucao = false

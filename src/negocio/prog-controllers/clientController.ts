@@ -9,7 +9,7 @@ export default class ClientController {
     }
     public selectCliente(numeroCpf: string) {
         let cpf = new CPF('', new Date())
-        let clienteSelecionado = new Cliente('', '', cpf,[],[])
+        let clienteSelecionado = new Cliente('', '', cpf,[],[], new Date())
 
         this.clientes.forEach(cliente => {
             if (numeroCpf === cliente.cpf.getValor) {

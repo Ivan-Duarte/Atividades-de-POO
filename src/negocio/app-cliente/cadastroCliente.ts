@@ -22,8 +22,8 @@ export default class CadastroCliente extends Cadastro {
         let cpf = this.obterCPF();
         let rgs = this.obterRGs();
         let telefones = this.obterTels();
-
-        let cliente = new Cliente(nome, nomeSocial, cpf, rgs, telefones);
+        let dataCadastro = new Date();
+        let cliente = new Cliente(nome, nomeSocial, cpf, rgs, telefones, dataCadastro);
         this.clientes.push(cliente)
         console.log(`\nCadastro concluído :)\n`);
     }

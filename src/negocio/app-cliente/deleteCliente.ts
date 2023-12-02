@@ -1,7 +1,5 @@
-import entrada from '../../io/entrada';
 import Empresa from '../../modelo/empresa';
 import ClientController from '../prog-controllers/clientController';
-
 
 export class ExclusaoCliente {
   static excluirCliente(empresa: Empresa, cpf: string) {

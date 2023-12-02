@@ -1,6 +1,5 @@
 import Pet from "../../modelo/pet"
 
-
 export default class PetController {
     private pets: Array<Pet>
     constructor(pets: Array<Pet>) {
