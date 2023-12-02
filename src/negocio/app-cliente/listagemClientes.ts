@@ -1,6 +1,6 @@
 import Cliente from "../../modelo/cliente";
 import Telefone from "../../modelo/telefone";
-import Listagem from "./listagem";
+import Listagem from "../prog-abstract/listagem";
 
 export default class ListagemClientes extends Listagem {
     private clientes: Array<Cliente>
@@ -25,7 +25,6 @@ export default class ListagemClientes extends Listagem {
         });
         console.log(`\n`);
     }
-
     private formatarData(data: Date): string {
         const dia = String(data.getDate()).padStart(2, '0');
         const mes = String(data.getMonth() + 1).padStart(2, '0');

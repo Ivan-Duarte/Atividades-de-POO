@@ -2,7 +2,7 @@ import Entrada from "../../io/entrada"
 import Cliente from "../../modelo/cliente"
 import RG from "../../modelo/rg"
 import CPF from "../../modelo/cpf"
-import Cadastro from "./cadastro"
+import Cadastro from "../prog-abstract/cadastro"
 import Telefone from "../../modelo/telefone"
 
 export default class CadastroCliente extends Cadastro {
@@ -28,7 +28,7 @@ export default class CadastroCliente extends Cadastro {
         console.log(`\nCadastro concluído :)\n`);
     }
     //Essa função tem os mesmos moldes da de CPF e RG porque quero facilitar a implementação de um filtro para verificar se o telefone ou DDD é valido.
-    private obterTels(): Array<Telefone>{
+    public obterTels(): Array<Telefone>{
         let telefones: Array<Telefone> = [];
         let addTel = true; //Operador lógico para verificar se existe mais telefones
 
@@ -55,7 +55,7 @@ export default class CadastroCliente extends Cadastro {
     }
     //Tentando entender meu código neh ? Hahaha, eu até acho que está bem organizado para ser sincero XD
     //Função para filtrar o erro de colocar valores incorretos na data do RG.
-    private obterRGs(): Array<RG> {
+    public obterRGs(): Array<RG> {
         let rgs: Array<RG> = [];
         let addRG = true;
 
@@ -88,7 +88,7 @@ export default class CadastroCliente extends Cadastro {
     }
     //Função para filtrar o erro de colocar valores incorretos na data do CPF.
     //Quero depois tentar colocar um filtro para o número também
-    private obterCPF(): CPF {
+    public obterCPF(): CPF {
         let opL = false; //Operador lógico
         let cpf: CPF = new CPF('', new Date()); // Inicialização com valores vazios para poder utilizar  o return sem erro de uso antes da inicialização.
         
@@ -111,7 +111,7 @@ export default class CadastroCliente extends Cadastro {
         return cpf;
     }
     //Função para verificar se a data contem um valor válido type Number
-    private validarData(dia: number, mes: number, ano: number): void {
+    public validarData(dia: number, mes: number, ano: number): void {
         if (isNaN(dia) || isNaN(mes) || isNaN(ano)) {
             throw new Error("Data de Emissão inválida");
         }
