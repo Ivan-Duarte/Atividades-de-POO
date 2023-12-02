@@ -3,6 +3,7 @@ import Cliente from "../../modelo/cliente"
 import RG from "../../modelo/rg"
 import CPF from "../../modelo/cpf"
 import Cadastro from "./cadastro"
+import Telefone from "../../modelo/telefone"
 
 export default class CadastroCliente extends Cadastro {
     private clientes: Array<Cliente>
@@ -20,10 +21,37 @@ export default class CadastroCliente extends Cadastro {
         
         let cpf = this.obterCPF();
         let rgs = this.obterRGs();
+        let telefones = this.obterTels();
 
-        let cliente = new Cliente(nome, nomeSocial, cpf, rgs);
+        let cliente = new Cliente(nome, nomeSocial, cpf, rgs, telefones);
         this.clientes.push(cliente)
         console.log(`\nCadastro concluído :)\n`);
+    }
+
+    private obterTels(): Array<Telefone>{
+        let telefones: Array<Telefone> = [];
+        let addTel = true; //Operador lógico para verificar se existe mais telefones
+
+        while (addTel) {
+            let opL = false; //Operador lógico
+            let telefone: Telefone = new Telefone('', ''); // Inicialização com valores vazios para poder utilizar  o return sem erro de uso antes da inicialização.
+            while (!opL) {
+                try {
+                    let dddTel = this.entrada.receberTexto(`Por favor informe o DDD do seu número de Telefone:  `);
+                    let numTel = this.entrada.receberTexto(`Por favor informe agora o seu número de Telefone: `);
+                    telefone = new Telefone(dddTel, numTel);
+                    opL = true;
+                } catch (error){
+                    console.error(`\n----------------------------\n       DATA INVALIDA !\nINSIRA UMA DATA VÁLIDA PARA O RG\n----------------------------`)
+                }
+            }
+            telefones.push(telefone);
+
+            // Perguntar se o usuário deseja adicionar outro RG
+            let resposta = this.entrada.receberTexto(`Deseja adicionar outro número de Telefone? (s/n): `).toLowerCase();
+            addTel = resposta === 's';
+        }
+        return telefones;
     }
 
     //Função para filtrar o erro de colocar valores incorretos na data do RG.
@@ -83,7 +111,7 @@ export default class CadastroCliente extends Cadastro {
         }
         return cpf;
     }
-    //Função para verificar se a data é um 
+    //Função para verificar se a data contem um valor válido type Number
     private validarData(dia: number, mes: number, ano: number): void {
         if (isNaN(dia) || isNaN(mes) || isNaN(ano)) {
             throw new Error("Data de Emissão inválida");
