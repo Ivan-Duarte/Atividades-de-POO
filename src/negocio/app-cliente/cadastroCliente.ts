@@ -27,6 +27,23 @@ export default class CadastroCliente extends Cadastro {
         this.clientes.push(cliente)
         console.log(`\nCadastro concluído :)\n`);
     }
+    //Função para facilitar a minha vida no update, já consigo pegar tudo aqui e uso os mesmos métodos de verificação de filtragem de erro.
+    public obterDadosAtualizados(): any {
+        let nome = this.entrada.receberTexto(`Novo Nome do cliente: `);
+        let nomeSocial = this.entrada.receberTexto(`Novo Nome social do cliente: `);
+        let cpf = this.obterCPF();
+        let rgs = this.obterRGs();
+        let telefones = this.obterTels();
+
+        return {
+            nome,
+            nomeSocial,
+            cpf,
+            rgs,
+            telefones,
+        };
+    }
+
     //Essa função tem os mesmos moldes da de CPF e RG porque quero facilitar a implementação de um filtro para verificar se o telefone ou DDD é valido.
     public obterTels(): Array<Telefone>{
         let telefones: Array<Telefone> = [];

@@ -5,40 +5,49 @@ import RG from "./rg"
 import Servico from "./servico"
 import Telefone from "./telefone"
 
-
-
 export default class Cliente {
     public nome: string
     public nomeSocial: string
-    private cpf: CPF
-    private rgs: Array<RG>
+    private _cpf: CPF
+    private _rgs: Array<RG>
     private dataCadastro: Date
-    private telefones: Array<Telefone>
+    private _telefones: Array<Telefone>
     private produtosConsumidos: Array<Produto>
     private servicosConsumidos: Array<Servico>
     private pets: Array<Pet>
     constructor(nome: string, nomeSocial: string, cpf: CPF, rgs: Array<RG>, telefones: Array<Telefone>) {
         this.nome = nome
         this.nomeSocial = nomeSocial
-        this.cpf = cpf
-        this.rgs = rgs
+        this._cpf = cpf
+        this._rgs = rgs
         this.dataCadastro = new Date()
-        this.telefones = telefones
+        this._telefones = telefones
         this.produtosConsumidos = []
         this.servicosConsumidos = []
         this.pets = []
     }
-    public get getCpf(): CPF {
-        return this.cpf
+    public get cpf(): CPF {
+        return this._cpf;
     }
-    public get getRgs(): Array<RG> {
-        return this.rgs
+    public set cpf(novoCPF: CPF) {
+        this._cpf = novoCPF;
     }
+
+    public get rgs(): Array<RG> {
+        return this._rgs
+    }
+    public set rgs(novoRG: Array<RG>){
+        this._rgs = novoRG;
+    }
+
     public get getDataCadastro(): Date {
         return this.dataCadastro
     }
-    public get getTelefones(): Array<Telefone> {
-        return this.telefones
+    public get telefones(): Array<Telefone> {
+        return this._telefones;
+    }
+    public set telefones(novosTelefones: Array<Telefone>) {
+        this._telefones = novosTelefones;
     }
     public get getProdutosConsumidos(): Array<Produto> {
         return this.produtosConsumidos

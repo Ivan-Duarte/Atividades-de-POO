@@ -11,7 +11,7 @@ export default class ClientController {
         let clienteSelecionado = new Cliente('', '', cpf,[],[])
 
         this.clientes.forEach(cliente => {
-            if (numeroCpf === cliente.getCpf.getValor) {
+            if (numeroCpf === cliente.cpf.getValor) {
                 clienteSelecionado = cliente
             }
         })

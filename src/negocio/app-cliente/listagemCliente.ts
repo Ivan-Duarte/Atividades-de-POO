@@ -12,13 +12,13 @@ export default class ListagemClientes extends Listagem {
         console.log(`\n\nLista de todos os clientes:\n--------------------------------------`);
         this.clientes.forEach(cliente => {
             console.log(`Nome: ${cliente.nome}  ||  Nome Social: ${cliente.nomeSocial}`);
-            console.log(`CPF: ${cliente.getCpf.getValor} - Data de Emissão: ${this.formatarData(cliente.getCpf.getDataEmissao)}`);
+            console.log(`CPF: ${cliente.cpf.getValor} - Data de Emissão: ${this.formatarData(cliente.cpf.getDataEmissao)}`);
             console.log(`\nRG(s):`);
-            cliente.getRgs.forEach(rg => {
+            cliente.rgs.forEach(rg => {
                 console.log(`RG: ${rg.getValor} - Data de Emissão: ${this.formatarData(rg.getDataEmissao)}`);
             });
             console.log(`\nTelefone(s):`);
-            cliente.getTelefones.forEach(telefone => {
+            cliente.telefones.forEach(telefone => {
                 console.log(`Numero: (${telefone.getDdd}) - ${telefone.getNumero}`);
             });
             console.log(`--------------------------------------`);
