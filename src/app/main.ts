@@ -27,7 +27,7 @@ while (execucao) {
             break;
         case 0:
             execucao = false
-            console.log(`Até mais`)
+            console.log(`\n----------------------------\n        Desligando...\n----------------------------`)
             break;
         default:
             console.log(`Operação não entendida :(`)
