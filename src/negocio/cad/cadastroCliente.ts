@@ -27,7 +27,7 @@ export default class CadastroCliente extends Cadastro {
         this.clientes.push(cliente)
         console.log(`\nCadastro concluído :)\n`);
     }
-
+    //Essa função tem os mesmos moldes da de CPF e RG porque quero facilitar a implementação de um filtro para verificar se o telefone ou DDD é valido.
     private obterTels(): Array<Telefone>{
         let telefones: Array<Telefone> = [];
         let addTel = true; //Operador lógico para verificar se existe mais telefones
@@ -42,7 +42,7 @@ export default class CadastroCliente extends Cadastro {
                     telefone = new Telefone(dddTel, numTel);
                     opL = true;
                 } catch (error){
-                    console.error(`\n----------------------------\n       DATA INVALIDA !\nINSIRA UMA DATA VÁLIDA PARA O RG\n----------------------------`)
+                    console.error(`\n----------------------------\n       DDD ou Telefone Inválidos\n----------------------------`)
                 }
             }
             telefones.push(telefone);
@@ -53,7 +53,7 @@ export default class CadastroCliente extends Cadastro {
         }
         return telefones;
     }
-
+    //Tentando entender meu código neh ? Hahaha, eu até acho que está bem organizado para ser sincero XD
     //Função para filtrar o erro de colocar valores incorretos na data do RG.
     private obterRGs(): Array<RG> {
         let rgs: Array<RG> = [];
@@ -86,7 +86,6 @@ export default class CadastroCliente extends Cadastro {
         }
         return rgs;
     }
-
     //Função para filtrar o erro de colocar valores incorretos na data do CPF.
     //Quero depois tentar colocar um filtro para o número também
     private obterCPF(): CPF {
