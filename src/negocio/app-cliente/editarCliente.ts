@@ -20,9 +20,9 @@ export default class EditorCliente {
             empresa.getClientes[indice].rgs = dadosAtualizados.rgs;
             empresa.getClientes[indice].telefones = dadosAtualizados.telefones;
 
-            console.log('\n---------------------------\n      Cliente atualizado com sucesso.\n---------------------------');
+            console.log('\n----------------------------------------------\n         Cliente atualizado com sucesso.\n----------------------------------------------');
         } else {
-            console.log(`\n----------------------------------------------\n               Cliente não encontrado.\nVerifique se o CPF foi digitado corretamente\n----------------------------------------------`);
+            console.log(`\n----------------------------------------------\n         Cliente não encontrado.\nVerifique se o CPF foi digitado corretamente\n----------------------------------------------`);
         }
     }
 }

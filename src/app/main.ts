@@ -1,9 +1,12 @@
 import Entrada from "../io/entrada";
+import Cliente from "../modelo/cliente";
+import cliente from "../modelo/cliente";
 import Empresa from "../modelo/empresa";
 import CadastroCliente from "../negocio/app-cliente/cadastroCliente";
 import { ExclusaoCliente } from "../negocio/app-cliente/deleteCliente";
 import EditorCliente from "../negocio/app-cliente/editarCliente";
 import ListagemClientes from "../negocio/app-cliente/listagemCliente";
+import CadastroPet from "../negocio/app-pet/cadastroPet";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
@@ -14,11 +17,12 @@ while (execucao) {
     console.log(`1 - Cadastrar cliente`);
     console.log(`2 - Listar todos os clientes`);
     console.log(`3 - Deletar cliente por CPF`);
-    console.log(`4 - Editar cliente por CPF`);
+    console.log(`4 - Editar cliente por CPF\n`);
+    console.log(`5 - Cadastrar um Pet`)
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
-    let opcao = entrada.receberNumero(`Por favor, escolha uma opção: `)
+    let opcao = entrada.receberNumero(`\nPor favor, escolha uma opção: `)
 
     switch (opcao) {
         case 1:
@@ -36,6 +40,10 @@ while (execucao) {
         case 4:
             let cpfEdit = entrada.receberTexto('Digite um CPF para edição: ')            
             EditorCliente.editar(empresa, cpfEdit)
+            break;
+        case 5:
+            let cadastroPet = new CadastroPet(empresa.getPets, empresa.getClientes)
+            cadastroPet.cadastrar()
             break;
         case 0:
             execucao = false

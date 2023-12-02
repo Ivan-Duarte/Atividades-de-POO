@@ -12,9 +12,9 @@ export class ExclusaoCliente {
 
     if (indice !== -1) {
       empresa.getClientes.splice(indice, 1);
-      console.log('\n---------------------------\n      Cliente excluído com sucesso.\n---------------------------');
+      console.log('\n----------------------------------------------\n        Cliente excluído com sucesso.\n----------------------------------------------');
     } else {
-      console.log(`\n----------------------------------------------\n               Cliente não encontrado.\nVerifique se o CPF foi digitado corretamente\n----------------------------------------------`);
+      console.log(`\n----------------------------------------------\n        Cliente não encontrado.\nVerifique se o CPF foi digitado corretamente\n----------------------------------------------`);
     }
   }
 }

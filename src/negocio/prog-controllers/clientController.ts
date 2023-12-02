@@ -1,5 +1,6 @@
 import Cliente from "../../modelo/cliente"
 import CPF from "../../modelo/cpf"
+import Empresa from "../../modelo/empresa"
 
 export default class ClientController {
     private clientes: Array<Cliente>
@@ -16,5 +17,16 @@ export default class ClientController {
             }
         })
         return clienteSelecionado
+    }
+    public verificarCpfExistente(numeroCpf: string): boolean {
+        const cpfDigitado = new CPF(numeroCpf, new Date());
+
+        for (const cliente of this.clientes) {
+            if (cliente.cpf.getValor === cpfDigitado.getValor) {
+                return true; // CPF existe na lista
+            }
+        }
+        console.log("CPF inválido. Cliente não encontrado.");
+        return false; // CPF não encontrado na lista
     }
 }
