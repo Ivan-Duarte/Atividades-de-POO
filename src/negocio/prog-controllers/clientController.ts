@@ -26,7 +26,7 @@ export default class ClientController {
                 return true; // CPF existe na lista
             }
         }
-        console.log("CPF inválido. Cliente não encontrado.");
+        console.log("\n-----------------------------------------\nCPF inválido. Cliente não encontrado.");
         return false; // CPF não encontrado na lista
     }
 }

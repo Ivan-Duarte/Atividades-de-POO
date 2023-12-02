@@ -13,6 +13,7 @@ export default class Pet {
         this.dono = dono
     }
 
+    public get getDono(){return this.dono}
     public get getNome(){return this.nome}
     public get getRaca(){return this.raca}
     public get getGenero(){return this.genero}

@@ -22,7 +22,7 @@ export default class CadastroPet extends Cadastro {
 
         //Verificação do CPF que o Cliente Inseriu.
         if (!selecionadorPet.verificarCpfExistente(numeroCpf)) {
-            console.log("Operação cancelada devido a CPF inválido.");
+            console.log("Operação cancelada devido a CPF inválido.\n-----------------------------------------\n");
             return;
         }
 
