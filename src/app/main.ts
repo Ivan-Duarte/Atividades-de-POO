@@ -9,6 +9,7 @@ import { ExclusaoPet } from "../negocio/app-pet/deletePet";
 import EditorPet from "../negocio/app-pet/editarPet";
 import ListagemPets from "../negocio/app-pet/listagemPet";
 import CadastroProduto from "../negocio/app-produto/cadastroProduto";
+import { ExclusaoProduto } from "../negocio/app-produto/deleteProduto";
 import ListagemProdutos from "../negocio/app-produto/listagemProduto";
 import PetController from "../negocio/prog-controllers/petController";
 
@@ -28,6 +29,7 @@ while (execucao) {
     console.log(`8 - Editar Pet por "Nome"`);
     console.log(`9 - Cadastrar Produto`);
     console.log(`10 - Listar todos os Produtos`);
+    console.log(`11 - Deletar Produto por "Nome"`);
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -78,6 +80,10 @@ while (execucao) {
             let listagemProdutos = new ListagemProdutos(empresa.getProdutos)
             listagemProdutos.listar()
             break;
+        case 11:
+                let nomeProdutoDel = entrada.receberTexto('Digite o nome do Produto para exclusão: ');
+                ExclusaoProduto.excluirProduto(empresa, nomeProdutoDel);
+                break;
         case 0:
             execucao = false
             console.log(`\n----------------------------\n        Desligando...\n----------------------------`)

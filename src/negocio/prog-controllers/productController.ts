@@ -5,7 +5,7 @@ export default class ProdutoController {
     constructor(produtos: Array<Produto>){
         this.produtos = produtos
     }
-    public selecionarProduto(nomeProduto: string) {
+    public selectProduto(nomeProduto: string) {
         let produtoSelecionado = new Produto('', 0)
 
         this.produtos.forEach(produto => {

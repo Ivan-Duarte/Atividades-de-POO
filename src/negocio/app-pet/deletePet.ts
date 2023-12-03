@@ -11,9 +11,9 @@ export class ExclusaoPet {
 
     if (indice !== -1) {
       empresa.getPets.splice(indice, 1);
-      console.log('\n----------------------------------------------\n        Pet excluído com sucesso.\n----------------------------------------------');
+      console.log('\n----------------------------------------------\n           Pet excluído com sucesso.\n----------------------------------------------');
     } else {
-      console.log(`\n----------------------------------------------\n             Pet não encontrado.\nVerifique se o Nome foi digitado corretamente\n----------------------------------------------`);
+      console.log(`\n----------------------------------------------\n               Pet não encontrado.\nVerifique se o Nome do Pet foi digitado corretamente\n----------------------------------------------`);
     }
   }
 }
