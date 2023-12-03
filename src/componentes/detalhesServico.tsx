@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { PencilSquare, TrashFill } from "react-bootstrap-icons";
 
 type Props = {
   nome: string;
@@ -14,9 +15,13 @@ export default class DetalhesServico extends Component<Props> {
         <p><b>Valor:</b> {valor}</p>
 
         <button type="button" className="btn btn-success" style={{ width: "100px", marginRight: "20px"}}>
+        <PencilSquare/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
           Editar
         </button>
         <button type="button" className="btn btn-danger" style={{ width: "100px", left:"10px" }}>
+        <TrashFill/>
+        <span style={{ marginLeft: "0.5rem" }}></span>
           Excluir
         </button>
       </div>

@@ -18,6 +18,7 @@ import DetalhesCliente from "./detalhesCliente";
 import DetalhesPet from "./detalhesPet";
 import DetalhesProduto from "./detalhesProduto";
 import DetalhesServico from "./detalhesServico";
+import { BalloonFill, Cart4, CashCoin, Gem, ListUl, PersonFill, PersonFillAdd, ShopWindow, TrophyFill } from "react-bootstrap-icons";
 
 type state = {
   tela: string,
@@ -50,7 +51,7 @@ export default class Roteador extends Component<{}, state> {
       <BarraNavegacao 
         seletorView={this.selecionarView}
         tema="#3CB371"
-        botoes={["Cadastros", "Consumir", "Clientes", "Pets", "Produtos", "Serviços", "Consumos"]}
+        botoes={["Cadastros", "Shopping", "Clientes", "Pets", "Produtos", "Serviços", "Consumos"]}
       />
     );
 
@@ -58,7 +59,10 @@ export default class Roteador extends Component<{}, state> {
       return (
         <>
           {barraNavegacao}
-          <h2 style={{ marginLeft: "40px" }}>Lista de Clientes</h2>
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
+          <PersonFill/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
+          Lista de Clientes</h2>
           <ListaCliente tema="#e3f2fd" seletorView={this.selecionarView} />
         </>
       );
@@ -68,19 +72,27 @@ export default class Roteador extends Component<{}, state> {
       return (
         <>
           {barraNavegacao}
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "50px" }}>
+          <PersonFillAdd/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
             Cadastrar um cliente
           </h2>
           <FormularioCadastroCliente tema="#e3f2fd" />
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "50px" }}>
+          <BalloonFill/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
             Cadastrar um Pet
           </h2>
           <FormularioCadastroPet tema="#e3f2fd" />
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "50px" }}>
+          <Cart4/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
             Cadastrar um produto
           </h2>
           <FormularioCadastroProduto tema="#e3f2fd" />
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "50px" }}>
+          <ShopWindow/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
             Cadastrar um serviço
           </h2>
           <FormularioCadastroServico tema="#e3f2fd" />
@@ -92,7 +104,9 @@ export default class Roteador extends Component<{}, state> {
       return (
         <>
           {barraNavegacao}
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
+          <BalloonFill/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
             Lista de Pets
           </h2>
           <ListaPet tema="#e3f2fd" seletorView={this.selecionarView}/>
@@ -105,7 +119,9 @@ export default class Roteador extends Component<{}, state> {
       return (
         <>
           {barraNavegacao}
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
+          <Cart4/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
             Lista de Produtos
           </h2>
           <ListaProduto tema="#e3f2fd" seletorView={this.selecionarView}/>
@@ -117,7 +133,9 @@ export default class Roteador extends Component<{}, state> {
       return (
         <>
           {barraNavegacao}
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
+          <ShopWindow/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
             Lista de Serviços
           </h2>
           <ListaServico tema="#e3f2fd" seletorView={this.selecionarView}/>
@@ -125,16 +143,20 @@ export default class Roteador extends Component<{}, state> {
       );
     }
 
-    if (this.state.tela === "Consumir") {
+    if (this.state.tela === "Shopping") {
       return (
         <>
           {barraNavegacao}
-          <h2 style={{ marginLeft: "40px" }}>
-            Consumir um produto
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
+          <Cart4/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
+            Comprar um produto
           </h2>
           <FormularioConsumoProduto tema="#e3f2fd" />
-          <h2 style={{ marginLeft: "40px" }}>
-            Consumir um serviço
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
+          <ShopWindow/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
+            Contratar um serviço
           </h2>
           <FormularioConsumoServico tema="#e3f2fd" />
         </>
@@ -145,19 +167,27 @@ export default class Roteador extends Component<{}, state> {
       return (
         <>
           {barraNavegacao}
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
+          <TrophyFill/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
             Lista dos 10 clientes que mais consumiram em quantidade
           </h2>
           <ListaClientesMaisConsumiramQuantidade tema="#e3f2fd" />
-          <h2 style={{ marginLeft: "40px" }}>
-            Lista geral dos serviços/produtos mais consumidos
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
+          <ListUl/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
+            Lista geral dos Serviços/Produtos mais consumidos
           </h2>
           <ListaGeralMaisConsumidos tema="#e3f2fd" />
-          <h2 style={{ marginLeft: "40px" }}>
-            Lista dos serviços/produtos mais consumidos por tipo e raça de pets
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
+          <Gem/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
+            Lista dos Serviços/Produtos mais consumidos por tipo e Raça de pets
           </h2>
           <ListaServProdMaisConsumidosTipoRaca tema="#e3f2fd" />
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
+          <CashCoin/>
+          <span style={{ marginLeft: "0.5rem" }}></span>
             Lista dos 5 clientes que mais consumiram em valor
           </h2>
           <ListaClientesMaisConsumiramValor tema="#e3f2fd" />
@@ -178,7 +208,7 @@ export default class Roteador extends Component<{}, state> {
       return (
         <>
           {barraNavegacao}
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
             Detalhes do Cliente
           </h2>
           <DetalhesCliente {...detalhesCliente} />
@@ -198,7 +228,7 @@ export default class Roteador extends Component<{}, state> {
       return (
         <>
           {barraNavegacao}
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
             Detalhes do Pet
           </h2>
           <DetalhesPet {...detalhesPet} />
@@ -215,7 +245,7 @@ export default class Roteador extends Component<{}, state> {
       return (
         <>
           {barraNavegacao}
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
             Detalhes do Produto
           </h2>
           <DetalhesProduto {...detalhesProduto} />
@@ -232,7 +262,7 @@ export default class Roteador extends Component<{}, state> {
       return (
         <>
           {barraNavegacao}
-          <h2 style={{ marginLeft: "40px" }}>
+          <h2 style={{fontWeight:"lighter", marginLeft: "40px" }}>
             Detalhes do Serviço
           </h2>
           <DetalhesServico {...detalhesServico} />
