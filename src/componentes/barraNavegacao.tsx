@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Component } from "react";
+import { Cart4 } from 'react-bootstrap-icons';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
@@ -22,7 +23,7 @@ export default class BarraNavegacao extends Component<props>{
         } else {
             let lista = this.props.botoes.map(valor =>
                 <li key={valor} className="nav-item">
-                    <a className="nav-link" href="#" onClick={(e) => this.props.seletorView(valor, e)} style={{ color: "#fff" }}>{valor}</a>
+                    <a className="nav-link" href="#" onClick={(e) => this.props.seletorView(valor, e)}style={{fontSize: "1.2rem",color: "#fff", textShadow: "2px 2px 2px #333"}}>{valor}</a>
                 </li>
             )
             return lista
@@ -33,9 +34,9 @@ export default class BarraNavegacao extends Component<props>{
         let tema = this.props.tema
         return (
             <>
-                <nav className="navbar navbar-expand-lg" data-bs-theme="light" style={{ backgroundColor: tema, marginBottom: 10 }}>
+                <nav className="navbar navbar-expand-lg" data-bs-theme="light" style={{backgroundColor: "#3CB371", marginBottom: 10 }}>
                     <div className="container-fluid">
-                        <span className="navbar-brand mb-0 h1" style={{ color: 'white' }}>PetLovers</span>
+                        <span className="navbar-brand mb-0 h1" style={{fontSize: "2rem", margin: "0rem 0rem", padding: "1rem 1rem" , color: "#faf6f6", fontStyle: "italic", textDecoration: "underline"}}>PetLovers</span>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
