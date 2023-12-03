@@ -16,8 +16,8 @@ export default class CadastroCliente extends Cadastro {
 
     public cadastrar(): void {
         console.log(`\nInício do cadastro do cliente`);
-        let nome = this.entrada.receberTexto(`Por favor informe o nome do cliente: `)
-        let nomeSocial = this.entrada.receberTexto(`Por favor informe o nome social do cliente: `)
+        let nome = this.entrada.receberTexto(`Por favor informe o nome do cliente: `);
+        let nomeSocial = this.entrada.receberTexto(`Por favor informe o nome social do cliente: `);
         
         let cpf = this.obterCPF();
         let rgs = this.obterRGs();

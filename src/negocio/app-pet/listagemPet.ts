@@ -8,9 +8,8 @@ export default class ListagemPets extends Listagem {
         this.pets = pets
     }
     public listar(): void {
-        console.log(`\nLista de todos os pets:`);
+        console.log(`\nLista de todos os pets:\n--------------------------------------`);
         this.pets.forEach(pet => {
-            console.log(`--------------------------------------`)
             console.log(`Dono: ` + pet.getDono);
             console.log(`Nome: ` + pet.getNome);
             console.log(`Raça: ` + pet.getRaca);

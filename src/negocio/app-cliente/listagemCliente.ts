@@ -24,7 +24,7 @@ export default class ListagemClientes extends Listagem {
             });
             console.log(`Pets: `);
             cliente.getPets.forEach(pet => {
-                console.log(`Nome do Pet: ${pet.getNome}`)
+                console.log(`Nome do Pet: ${pet.getNome}`);
             });
             console.log(`--------------------------------------`);
         });
