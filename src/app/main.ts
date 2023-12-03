@@ -6,7 +6,9 @@ import EditorCliente from "../negocio/app-cliente/editarCliente";
 import ListagemClientes from "../negocio/app-cliente/listagemCliente";
 import CadastroPet from "../negocio/app-pet/cadastroPet";
 import { ExclusaoPet } from "../negocio/app-pet/deletePet";
+import EditorPet from "../negocio/app-pet/editarPet";
 import ListagemPets from "../negocio/app-pet/listagemPet";
+import PetController from "../negocio/prog-controllers/petController";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
@@ -21,6 +23,7 @@ while (execucao) {
     console.log(`5 - Cadastrar um Pet`);
     console.log(`6 - Listar todos os Pets`);
     console.log(`7 - Deletar Pet por "Nome"`);
+    console.log(`8 - Editar Pet por "Nome"`);
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -54,6 +57,14 @@ while (execucao) {
         case 7:
             let nomePeteDel = entrada.receberTexto('Digite o Nome do Pet para exclusão: ');
             ExclusaoPet.excluirPet(empresa, nomePeteDel);
+            break;
+        case 8:
+            let nomePetEditar = entrada.receberTexto('Digite um pet para edição: ')
+            let selecionadorPetEditar = new PetController(empresa.getPets)
+            let petEditar = selecionadorPetEditar.selectPet(nomePetEditar)
+    
+            let editorPet = new EditorPet()
+            editorPet.editar(petEditar)
             break;
         case 0:
             execucao = false
