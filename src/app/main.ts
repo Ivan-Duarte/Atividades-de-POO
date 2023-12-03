@@ -8,6 +8,7 @@ import CadastroPet from "../negocio/app-pet/cadastroPet";
 import { ExclusaoPet } from "../negocio/app-pet/deletePet";
 import EditorPet from "../negocio/app-pet/editarPet";
 import ListagemPets from "../negocio/app-pet/listagemPet";
+import CadastroProduto from "../negocio/app-produto/cadastroProduto";
 import PetController from "../negocio/prog-controllers/petController";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
@@ -24,6 +25,7 @@ while (execucao) {
     console.log(`6 - Listar todos os Pets`);
     console.log(`7 - Deletar Pet por "Nome"`);
     console.log(`8 - Editar Pet por "Nome"`);
+    console.log(`9 - Cadastrar Produto`);
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -65,6 +67,10 @@ while (execucao) {
     
             let editorPet = new EditorPet()
             editorPet.editar(petEditar)
+            break;
+        case 9:
+            let cadastroProduto = new CadastroProduto(empresa.getProdutos)
+            cadastroProduto.cadastrar()
             break;
         case 0:
             execucao = false
