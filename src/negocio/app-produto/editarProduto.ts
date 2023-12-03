@@ -17,9 +17,9 @@ export default class EditorProduto {
             empresa.getProdutos[indice].nomeProduto = dadosAtualizados.nome;
             empresa.getProdutos[indice].valorProduto = dadosAtualizados.valor;
 
-            console.log('\n----------------------------------------------\n         Produto atualizado com sucesso.\n----------------------------------------------');
+            console.log('\n---------------------------------------------------------\n               Produto atualizado com sucesso.\n---------------------------------------------------------');
         } else {
-            console.log(`\n----------------------------------------------\n               Produto não encontrado.\nVerifique se o nome do Produto foi digitado corretamente\n----------------------------------------------`);
-        }
+            console.log(`\n---------------------------------------------------------\n                 Produto não encontrado.\nVerifique se o nome do Produto foi digitado corretamente\n---------------------------------------------------------`);
+        }   
     }
 }

@@ -10,7 +10,7 @@ export class ExclusaoServico {
   
       if (indice !== -1) {
         empresa.getServicos.splice(indice, 1);
-        console.log('\n---------------------------------------------------------\n        Serviço excluído com sucesso.\n---------------------------------------------------------');
+        console.log('\n---------------------------------------------------------\n               Serviço excluído com sucesso.\n---------------------------------------------------------');
       } else {
         console.log(`\n---------------------------------------------------------\n               Serviço não encontrado.\nVerifique se o Nome do Serviço foi digitado corretamente\n---------------------------------------------------------`);
       }

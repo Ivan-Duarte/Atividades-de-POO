@@ -14,6 +14,7 @@ import EditorProduto from "../negocio/app-produto/editarProduto";
 import ListagemProdutos from "../negocio/app-produto/listagemProduto";
 import CadastroServico from "../negocio/app-serviço/cadastroServico";
 import { ExclusaoServico } from "../negocio/app-serviço/deleteServico";
+import EditorServico from "../negocio/app-serviço/editarServico";
 import ListagemServicos from "../negocio/app-serviço/listagemServico";
 import PetController from "../negocio/prog-controllers/petController";
 
@@ -30,7 +31,7 @@ while (execucao) {
     console.log(`5 - Cadastrar um Pet`);
     console.log(`6 - Listar todos os Pets`);
     console.log(`7 - Deletar Pet por "Nome"`);
-    console.log(`8 - Editar Pet por "Nome\n"`);
+    console.log(`8 - Editar Pet por "Nome"\n`);
     console.log(`9 - Cadastrar Produto`);
     console.log(`10 - Listar todos os Produtos`);
     console.log(`11 - Deletar Produto por "Nome"`);
@@ -38,6 +39,7 @@ while (execucao) {
     console.log(`13 - Cadastrar Serviço`);
     console.log(`14 - Listar todos os Serviços`);
     console.log(`15 - Deletar Serviço por "Nome"`);
+    console.log(`16 - Editar Serviço por "Nome"\n`);
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -106,7 +108,11 @@ while (execucao) {
         case 15:
                 let nomeServicoDel = entrada.receberTexto('Digite o nome do Serviço para exclusão: ');
                 ExclusaoServico.excluirServico(empresa, nomeServicoDel);
-                break;    
+                break; 
+        case 16:
+                let nomeServicoEditar = entrada.receberTexto('Digite o nome do Servico para edição: ')            
+                EditorServico.editar(empresa, nomeServicoEditar)
+                break;   
         case 0:
             execucao = false
             console.log(`\n----------------------------\n        Desligando...\n----------------------------`)

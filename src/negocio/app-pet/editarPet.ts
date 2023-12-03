@@ -3,10 +3,8 @@ import Pet from "../../modelo/pet";
 
 
 export default class EditorPet {
-
     private entrada: Entrada
     constructor() {
-
         this.entrada = new Entrada()
     }
 
