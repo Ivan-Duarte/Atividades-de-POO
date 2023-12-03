@@ -22,7 +22,7 @@ export default class CadastroServico extends Cadastro {
     }
     public obterDadosAtualizadosServico(): any {
         let nome = this.entrada.receberTexto('Novo nome do Serviço: ');
-        let valor = this.entrada.receberNumero('Novo valor do Produto: ');
+        let valor = this.entrada.receberNumero('Novo valor do Serviço: ');
         return {
             nome,
             valor,

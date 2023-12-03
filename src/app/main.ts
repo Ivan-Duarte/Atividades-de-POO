@@ -13,6 +13,7 @@ import { ExclusaoProduto } from "../negocio/app-produto/deleteProduto";
 import EditorProduto from "../negocio/app-produto/editarProduto";
 import ListagemProdutos from "../negocio/app-produto/listagemProduto";
 import CadastroServico from "../negocio/app-serviço/cadastroServico";
+import { ExclusaoServico } from "../negocio/app-serviço/deleteServico";
 import ListagemServicos from "../negocio/app-serviço/listagemServico";
 import PetController from "../negocio/prog-controllers/petController";
 
@@ -36,6 +37,7 @@ while (execucao) {
     console.log(`12 - Editar Produto por "Nome"\n`);
     console.log(`13 - Cadastrar Serviço`);
     console.log(`14 - Listar todos os Serviços`);
+    console.log(`15 - Deletar Serviço por "Nome"`);
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -101,7 +103,10 @@ while (execucao) {
                 let listagemServico = new ListagemServicos(empresa.getServicos)
                 listagemServico.listar()
                 break;
-                           
+        case 15:
+                let nomeServicoDel = entrada.receberTexto('Digite o nome do Serviço para exclusão: ');
+                ExclusaoServico.excluirServico(empresa, nomeServicoDel);
+                break;    
         case 0:
             execucao = false
             console.log(`\n----------------------------\n        Desligando...\n----------------------------`)

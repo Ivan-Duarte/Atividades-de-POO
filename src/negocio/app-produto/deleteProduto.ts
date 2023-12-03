@@ -11,9 +11,9 @@ export class ExclusaoProduto {
   
       if (indice !== -1) {
         empresa.getProdutos.splice(indice, 1);
-        console.log('\n----------------------------------------------\n        Produto excluído com sucesso.\n----------------------------------------------');
+        console.log('\n---------------------------------------------------------\n        Produto excluído com sucesso.\n---------------------------------------------------------');
       } else {
-        console.log(`\n----------------------------------------------\n               Produto não encontrado.\nVerifique se o Nome do Produto foi digitado corretamente\n----------------------------------------------`);
+        console.log(`\n---------------------------------------------------------\n               Produto não encontrado.\nVerifique se o Nome do Produto foi digitado corretamente\n---------------------------------------------------------`);
       }
     }
   }

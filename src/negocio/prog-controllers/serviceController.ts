@@ -5,7 +5,7 @@ export default class ServiceController {
     constructor(servicos: Array<Servico>){
         this.servicos = servicos
     }
-    public selecionarServico(nomeServico: string) {
+    public selectServico(nomeServico: string) {
         let servicoSelecionado = new Servico('', 0)
 
         this.servicos.forEach(servico => {
