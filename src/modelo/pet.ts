@@ -1,3 +1,6 @@
+import Produto from "./produto"
+import Servico from "./servico"
+
 export default class Pet {
     
     public nome: string
@@ -5,6 +8,8 @@ export default class Pet {
     private raca: string
     private genero: string
     private dono: string
+    private produtosConsumidos: Array<Produto>
+    private servicosConsumidos: Array<Servico>
 
     constructor(nome: string, raca: string, genero: string, tipo: string, dono: string) {
         this.nome = nome
@@ -12,6 +17,8 @@ export default class Pet {
         this.genero = genero
         this.tipo = tipo
         this.dono = dono
+        this.produtosConsumidos = []
+        this.servicosConsumidos = []
     }
 
     public get getDono(){return this.dono}
@@ -26,5 +33,11 @@ export default class Pet {
         this.genero = genero
         this.tipo = tipo
         this.dono = dono
+    }
+    public addProdutoPet(produtoConsumido: Produto): void {
+        this.produtosConsumidos.push(produtoConsumido);
+    }
+    public addServicoPet(servicoConsumido: Servico): void {
+        this.servicosConsumidos.push(servicoConsumido);
     }
 }

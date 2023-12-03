@@ -3,7 +3,9 @@ import Empresa from "../modelo/empresa";
 import CadastroCliente from "../negocio/app-cliente/cadastroCliente";
 import { ExclusaoCliente } from "../negocio/app-cliente/deleteCliente";
 import EditorCliente from "../negocio/app-cliente/editarCliente";
-import ListagemClientes from "../negocio/app-cliente/listagemCliente";
+import ListagemClientes from "../negocio/app-cliente/listaCliente";
+import ListagemConsumo from "../negocio/app-cliente/listaConsumo";
+import ListagemConsProdServ from "../negocio/app-cliente/listaConsumoProdServ";
 import CadastroPet from "../negocio/app-pet/cadastroPet";
 import { ExclusaoPet } from "../negocio/app-pet/deletePet";
 import EditorPet from "../negocio/app-pet/editarPet";
@@ -17,8 +19,10 @@ import { ExclusaoServico } from "../negocio/app-serviço/deleteServico";
 import EditorServico from "../negocio/app-serviço/editarServico";
 import ListagemServicos from "../negocio/app-serviço/listagemServico";
 import PetController from "../negocio/prog-controllers/petController";
+import PurchaseProduto from "../negocio/prog-controllers/productPurchaseController";
+import PurchaseServico from "../negocio/prog-controllers/servicePurchaseController";
 
-console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
+console.log(`\n-------------------------------------------------------------------------------------\n  Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias\n-------------------------------------------------------------------------------------`)
 let empresa = new Empresa()
 let execucao = true
 
@@ -40,6 +44,10 @@ while (execucao) {
     console.log(`14 - Listar todos os Serviços`);
     console.log(`15 - Deletar Serviço por "Nome"`);
     console.log(`16 - Editar Serviço por "Nome"\n`);
+    console.log(`17 - Solicitar um produto`);
+    console.log(`18 - Solicitar um serviço`);
+    console.log(`19 - Listar consumo geral dos clientes`);
+    console.log(`20 - Listar Produtos e Serviços mais consumidos`);
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -112,7 +120,23 @@ while (execucao) {
         case 16:
                 let nomeServicoEditar = entrada.receberTexto('Digite o nome do Servico para edição: ')            
                 EditorServico.editar(empresa, nomeServicoEditar)
-                break;   
+                break;
+        case 17:
+                let adquirirProduto = new PurchaseProduto(empresa.getProdutos, empresa.getClientes, empresa.getPets)
+                adquirirProduto.purchase()
+                break;
+        case 18:
+                let consumirServico = new PurchaseServico(empresa.getServicos, empresa.getClientes, empresa.getPets)
+                consumirServico.purchase()
+                break;
+        case 19:
+                let listaConsumo = new ListagemConsumo(empresa.getClientes)
+                listaConsumo.listar()
+                break;
+        case 20:
+                let listaConsProdServ = new ListagemConsProdServ(empresa.getClientes)
+                listaConsProdServ.listar()
+                break;
         case 0:
             execucao = false
             console.log(`\n----------------------------\n        Desligando...\n----------------------------`)
