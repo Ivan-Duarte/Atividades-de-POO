@@ -34,6 +34,12 @@ export default class Pet {
         this.tipo = tipo
         this.dono = dono
     }
+    public get getProdutosConsumidos(): Array<Produto> {
+        return this.produtosConsumidos
+    }
+    public get getServicosConsumidos(): Array<Servico> {
+        return this.servicosConsumidos
+    }
     public addProdutoPet(produtoConsumido: Produto): void {
         this.produtosConsumidos.push(produtoConsumido);
     }

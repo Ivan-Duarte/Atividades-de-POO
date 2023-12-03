@@ -8,7 +8,7 @@ export default class ListagemConsumo extends Listagem {
         this.clientes = clientes
     }
     public listar(): void {
-        console.log(`\nLista de todos os clientes:`);
+        console.log(`\nLista de Consumo de todos os clientes:`);
         this.clientes.forEach(cliente => {
             console.log(`Nome: ` + cliente.nome);
             console.log(`CPF: ` + cliente.cpf.getValor);

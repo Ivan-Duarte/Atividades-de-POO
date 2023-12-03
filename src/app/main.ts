@@ -6,9 +6,12 @@ import EditorCliente from "../negocio/app-cliente/editarCliente";
 import ListagemClientes from "../negocio/app-cliente/listaCliente";
 import ListagemConsumo from "../negocio/app-cliente/listaConsumo";
 import ListagemConsProdServ from "../negocio/app-cliente/listaConsumoProdServ";
+import ListagemConsQuant from "../negocio/app-cliente/listaConsumoQuantidade";
+import ListagemConsValor from "../negocio/app-cliente/listaConsumoValor";
 import CadastroPet from "../negocio/app-pet/cadastroPet";
 import { ExclusaoPet } from "../negocio/app-pet/deletePet";
 import EditorPet from "../negocio/app-pet/editarPet";
+import ListagemConsPet from "../negocio/app-pet/listaConsumoPet";
 import ListagemPets from "../negocio/app-pet/listagemPet";
 import CadastroProduto from "../negocio/app-produto/cadastroProduto";
 import { ExclusaoProduto } from "../negocio/app-produto/deleteProduto";
@@ -46,8 +49,11 @@ while (execucao) {
     console.log(`16 - Editar Serviço por "Nome"\n`);
     console.log(`17 - Solicitar um produto`);
     console.log(`18 - Solicitar um serviço`);
-    console.log(`19 - Listar consumo geral dos clientes`);
-    console.log(`20 - Listar Produtos e Serviços mais consumidos`);
+    console.log(`19 - Listar Consumo Geral dos Clientes`);
+    console.log(`20 - Listar os 10 clientes que mais consumiram em Quantidade`);
+    console.log(`21 - Listar Produtos ou Serviços mais consumidos`);
+    console.log(`22 - Listar os Produtos ou Serviços mais consumidos por Raça e Tipo de pet`);
+    console.log(`23 - Listar os 5 clientes que mais consumiram em valor`);
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -134,8 +140,20 @@ while (execucao) {
                 listaConsumo.listar()
                 break;
         case 20:
+                let listagemConsQuant = new ListagemConsQuant(empresa.getClientes)
+                listagemConsQuant.listar()
+                break;
+        case 21:
                 let listaConsProdServ = new ListagemConsProdServ(empresa.getClientes)
                 listaConsProdServ.listar()
+                break;
+        case 22:
+            let listagemConsPet = new ListagemConsPet(empresa.getClientes)
+            listagemConsPet.listar()
+            break;
+        case 23:
+                let listagemConsValor = new ListagemConsValor(empresa.getClientes)
+                listagemConsValor.listar()
                 break;
         case 0:
             execucao = false
