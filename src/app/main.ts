@@ -10,6 +10,7 @@ import EditorPet from "../negocio/app-pet/editarPet";
 import ListagemPets from "../negocio/app-pet/listagemPet";
 import CadastroProduto from "../negocio/app-produto/cadastroProduto";
 import { ExclusaoProduto } from "../negocio/app-produto/deleteProduto";
+import EditorProduto from "../negocio/app-produto/editarProduto";
 import ListagemProdutos from "../negocio/app-produto/listagemProduto";
 import PetController from "../negocio/prog-controllers/petController";
 
@@ -30,6 +31,7 @@ while (execucao) {
     console.log(`9 - Cadastrar Produto`);
     console.log(`10 - Listar todos os Produtos`);
     console.log(`11 - Deletar Produto por "Nome"`);
+    console.log(`12 - Editar Produto por "Nome"\n`);
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -68,7 +70,6 @@ while (execucao) {
             let nomePetEditar = entrada.receberTexto('Digite um pet para edição: ')
             let selecionadorPetEditar = new PetController(empresa.getPets)
             let petEditar = selecionadorPetEditar.selectPet(nomePetEditar)
-    
             let editorPet = new EditorPet()
             editorPet.editar(petEditar)
             break;
@@ -83,6 +84,10 @@ while (execucao) {
         case 11:
                 let nomeProdutoDel = entrada.receberTexto('Digite o nome do Produto para exclusão: ');
                 ExclusaoProduto.excluirProduto(empresa, nomeProdutoDel);
+                break;
+        case 12:
+                let nomeProdutoEditar = entrada.receberTexto('Digite o nome do Produto para edição: ')            
+                EditorProduto.editar(empresa, nomeProdutoEditar)
                 break;
         case 0:
             execucao = false

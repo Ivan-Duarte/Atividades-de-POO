@@ -19,5 +19,13 @@ export default class CadastroProduto extends Cadastro {
         produto.valorProduto = valorProduto;
         this.produtos.push(produto)
     }
+    public obterDadosAtualizadosProduto(): any {
+        let nome = this.entrada.receberTexto('Novo nome do produto: ');
+        let valor = this.entrada.receberNumero('Novo valor do produto: ');
+        return {
+            nome,
+            valor,
+        };
+    }
 }
     
