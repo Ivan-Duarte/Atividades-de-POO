@@ -12,6 +12,7 @@ import CadastroProduto from "../negocio/app-produto/cadastroProduto";
 import { ExclusaoProduto } from "../negocio/app-produto/deleteProduto";
 import EditorProduto from "../negocio/app-produto/editarProduto";
 import ListagemProdutos from "../negocio/app-produto/listagemProduto";
+import CadastroServico from "../negocio/app-serviço/cadastroServico";
 import PetController from "../negocio/prog-controllers/petController";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
@@ -27,11 +28,12 @@ while (execucao) {
     console.log(`5 - Cadastrar um Pet`);
     console.log(`6 - Listar todos os Pets`);
     console.log(`7 - Deletar Pet por "Nome"`);
-    console.log(`8 - Editar Pet por "Nome"`);
+    console.log(`8 - Editar Pet por "Nome\n"`);
     console.log(`9 - Cadastrar Produto`);
     console.log(`10 - Listar todos os Produtos`);
     console.log(`11 - Deletar Produto por "Nome"`);
     console.log(`12 - Editar Produto por "Nome"\n`);
+    console.log(`13 - Cadastrar Serviço`);
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -88,6 +90,10 @@ while (execucao) {
         case 12:
                 let nomeProdutoEditar = entrada.receberTexto('Digite o nome do Produto para edição: ')            
                 EditorProduto.editar(empresa, nomeProdutoEditar)
+                break;
+        case 13:
+                let cadastroServico = new CadastroServico(empresa.getServicos)
+                cadastroServico.cadastrar()
                 break;
         case 0:
             execucao = false

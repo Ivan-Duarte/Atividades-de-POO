@@ -1,9 +1,10 @@
 import Empresa from "../../modelo/empresa";
-import ProdutoController from "../prog-controllers/productController";
+import ProductController from "../prog-controllers/productController";
+
 
 export class ExclusaoProduto {
     static excluirProduto(empresa: Empresa, nome: string) {
-      let selecionadorProduto = new ProdutoController(empresa.getProdutos);
+      let selecionadorProduto = new ProductController(empresa.getProdutos);
       let produto = selecionadorProduto.selectProduto(nome);
   
       let indice = empresa.getProdutos.indexOf(produto);

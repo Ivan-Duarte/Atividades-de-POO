@@ -1,6 +1,5 @@
 import Cliente from "../../modelo/cliente"
 import CPF from "../../modelo/cpf"
-import Empresa from "../../modelo/empresa"
 
 export default class ClientController {
     private clientes: Array<Cliente>

@@ -1,12 +1,11 @@
-import Entrada from "../../io/entrada";
 import Empresa from "../../modelo/empresa";
-import Produto from "../../modelo/produto";
-import ProdutoController from "../prog-controllers/productController";
+import ProductController from "../prog-controllers/productController";
+
 import CadastroProduto from "./cadastroProduto";
 
 export default class EditorProduto {
     static editar(empresa: Empresa, nome: string): void {
-        let selecionadorProduto = new ProdutoController(empresa.getProdutos);
+        let selecionadorProduto = new ProductController(empresa.getProdutos);
         let produto = selecionadorProduto.selectProduto(nome);
 
         let indice = empresa.getProdutos.indexOf(produto);

@@ -1,6 +1,6 @@
 import Produto from "../../modelo/produto"
 
-export default class ProdutoController {
+export default class ProductController {
     private produtos: Array<Produto>
     constructor(produtos: Array<Produto>){
         this.produtos = produtos
